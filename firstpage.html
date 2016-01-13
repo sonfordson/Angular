@@ -12,7 +12,7 @@
          <p>Input something in the input box:</p>
         <p>Name : <input type="text" data-ng-model="name" placeholder="Enter name here"/></p>
             <ul>
-                 <li data-ng-repeat="cust in customers |  filter:name | orderBy:'city' ">{{ cust.name }} - {{ cust.city }}</li>
+                 <li data-ng-repeat="cust in customers |  filter:name | orderBy:'city' ">{{ cust.name |uppercase }} - {{ cust.city | lowercase }}</li>
             </ul>
 
 <!--<script src="Scripts/angular.min.js"></script>-->
