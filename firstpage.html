@@ -7,9 +7,9 @@
     <script src="Scripts/angular.min.js"></script>
 </head>
 
-<body data-ng-app="">
+<body >
 
-<div data-ng-controller="SimpleController">
+<div data-ng-app="myApp" data-ng-controller="SimpleController">
     <p>Input something in the input box:</p>
 
     <p>Name :
@@ -23,13 +23,15 @@
 </div>
 
 <script>
-    function SimpleController($scope) {
+    var app = angular.module('myApp', []);
+    app.controller('SimpleController', function($scope) {
         $scope.customers = [
             {name: 'sonford Son', city: 'Nairobi'},
             {name: 'phidel onyango', city: 'Mombasa'},
             {name: 'Lynder anyango', city: 'Kisumu'}
         ];
-    }
+    });
+
 </script>
 
 </body>
