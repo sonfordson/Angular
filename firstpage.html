@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html data-ng-app="">
+<html>
 <head>
     <meta charset="UTF-8">
     <title> working angular </title>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script src="Scripts/angular.min.js"></script>
 </head>
 
-<body data-ng-init="customers=[{name:'sonford Son',city:'Nairobi'}, {name:'phidel onyango',city:'mombasa'}, {name:'Lynder anyango',city:'kisumu'}]">
-        Name:
-        <br/>
-         <p>Input something in the input box:</p>
-        <p>Name : <input type="text" data-ng-model="name" placeholder="Enter name here"/></p>
-            <ul>
-                 <li data-ng-repeat="cust in customers |  filter:name | orderBy:'city' ">{{ cust.name |uppercase }} - {{ cust.city | lowercase }}</li>
-            </ul>
+<body data-ng-app="">
 
-<!--<script src="Scripts/angular.min.js"></script>-->
+<div data-ng-controller="SimpleController">
+    <p>Input something in the input box:</p>
+
+    <p>Name :
+        <input type="text" data-ng-model="name" placeholder="Enter name here"/>
+    </p>
+    <ul>
+        <li data-ng-repeat="cust in customers |  filter:name | orderBy:'city' ">
+            {{ cust.name | uppercase }} - {{ cust.city | lowercase }}
+        </li>
+    </ul>
+</div>
+
+<script>
+    function SimpleController($scope) {
+        $scope.customers = [
+            {name: 'sonford Son', city: 'Nairobi'},
+            {name: 'phidel onyango', city: 'Mombasa'},
+            {name: 'Lynder anyango', city: 'Kisumu'}
+        ];
+    }
+</script>
 
 </body>
 </html>
